@@ -26,7 +26,7 @@ export const LoginForm = () => {
   });
   return (
     <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md">
+      <Box bg="white" p={6} rounded="md" w={500}>
         <form onSubmit={formik.handleSubmit}>
           <VStack spacing={4} align="flex-start">
             <FormControl>
@@ -52,7 +52,7 @@ export const LoginForm = () => {
               />
             </FormControl>
 
-            <Button type="submit" colorScheme="purple" width="full">
+            <Button type="submit" colorScheme="teal" width="full">
               Login
             </Button>
           </VStack>
@@ -61,5 +61,3 @@ export const LoginForm = () => {
     </Flex>
   );
 };
-
-// /input type="email" id="email"
