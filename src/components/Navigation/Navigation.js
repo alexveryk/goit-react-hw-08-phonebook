@@ -1,6 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { Tabs, TabList, Tab } from '@chakra-ui/react';
+import { Tabs, TabList } from '@chakra-ui/react';
 import { StyledLink } from './Navigation.styled';
 
 export const Navigation = () => {
