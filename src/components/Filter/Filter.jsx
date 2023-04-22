@@ -1,7 +1,5 @@
 import { nanoid } from 'nanoid';
-import { FilterContainer } from './Filter.styled';
-import { FilterLabel } from './Filter.styled';
-import { FilterInput } from './Filter.styled';
+import { Stack, Input, Heading } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contacts/filterSlice';
 
@@ -17,9 +15,19 @@ export const Filter = () => {
   const idForm = nanoid(5);
 
   return (
-    <FilterContainer>
-      <FilterLabel htmlFor={idForm}>Find contacts by name</FilterLabel>
-      <FilterInput type="text" id={idForm} onChange={handleIputСhange} />
-    </FilterContainer>
+    <>
+      <Heading as="h2" size="lg">
+        Find contacts by name
+      </Heading>
+
+      <Stack spacing={3} mb="16px">
+        <Input
+          variant="flushed"
+          placeholder="Search"
+          id={idForm}
+          onChange={handleIputСhange}
+        />
+      </Stack>
+    </>
   );
 };
