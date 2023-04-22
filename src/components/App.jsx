@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-
 import { refreshUser } from '../redux/auth/operations';
 import { useAuth } from '../hooks/useAuth';
 import { Layout } from '../components/Layout';
