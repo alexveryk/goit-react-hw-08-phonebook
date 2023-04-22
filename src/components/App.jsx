@@ -1,7 +1,3 @@
-// import { ContactLst } from './ContactLst/ContactList';
-// import { Filter } from './Filter/Filter';
-// import { PhonebookForm } from './PhonebookForm/PhoneForm';
-// import { AppContainer } from './App.styled';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
@@ -13,12 +9,12 @@ import { Home } from '../pages/Home';
 import { Register } from '../pages/Register';
 import { Login } from '../pages/Login';
 import { Contacts } from '../pages/Contacts';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -29,19 +25,26 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute component={<Register />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute component={<Login />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute component={<Contacts />} redirectTo="/login" />
+          }
+        />
       </Route>
     </Routes>
   );
-  // <AppContainer>
-  //   <h1>Phonebook</h1>
-  //   <PhonebookForm />
-  //   <h2>Contacts</h2>
-  //   <Filter />
-  //   {isLoading && !error && <b>Request in progress...</b>}
-  //   <ContactLst />
-  // </AppContainer>
 };
