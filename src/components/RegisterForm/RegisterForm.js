@@ -17,7 +17,7 @@ export const RegisterForm = () => {
 
   return (
     <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md" w={64}>
+      <Box bg="white" p={6} rounded="md" w={500}>
         <Formik
           initialValues={{
             email: '',
@@ -25,14 +25,7 @@ export const RegisterForm = () => {
             name: '',
           }}
           onSubmit={(values, actions) => {
-            console.log(values);
-            dispatch(
-              register({
-                email: values.email,
-                password: values.password,
-                name: values.name,
-              })
-            );
+            dispatch(register(values));
             actions.resetForm();
           }}
         >
@@ -57,11 +50,13 @@ export const RegisterForm = () => {
                     name="email"
                     type="email"
                     variant="filled"
+                    required
                   />
                 </FormControl>
                 <FormControl isInvalid={!!errors.password && touched.password}>
                   <FormLabel htmlFor="password">Password</FormLabel>
                   <Field
+                    required
                     as={Input}
                     id="password"
                     name="password"
@@ -80,7 +75,7 @@ export const RegisterForm = () => {
                   <FormErrorMessage>{errors.password}</FormErrorMessage>
                 </FormControl>
 
-                <Button type="submit" colorScheme="purple" width="full">
+                <Button type="submit" colorScheme="teal" width="full">
                   Register
                 </Button>
               </VStack>
