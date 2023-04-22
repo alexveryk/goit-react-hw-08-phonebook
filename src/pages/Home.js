@@ -3,10 +3,8 @@ import {
   Heading,
   Card,
   CardHeader,
-  Button,
   CardBody,
   Image,
-  CardFooter,
 } from '@chakra-ui/react';
 
 export const Home = () => {
