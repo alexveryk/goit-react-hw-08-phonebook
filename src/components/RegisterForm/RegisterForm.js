@@ -16,8 +16,8 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md" w={500}>
+    <Flex bg="gray.100" align="center" justify="center" h="70vh">
+      <Box bg="white" p={6} rounded="md" w={400}>
         <Formik
           initialValues={{
             email: '',
