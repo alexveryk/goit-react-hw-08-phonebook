@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContacts } from 'redux/contacts/operations';
+import { useToast } from '@chakra-ui/react';
 
 const PhonebookSchema = Yup.object().shape({
   name: Yup.string()
@@ -23,9 +24,19 @@ export const PhonebookForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
+  const toast = useToast();
+
   const addNewContact = newContacts => {
     if (contacts.some(el => el.name === newContacts.name)) {
-      alert(`${newContacts.name} is alredy in contacts`);
+      // alert(`${newContacts.name} is alredy in contacts`);
+      toast({
+        title: 'Account created.',
+        position: 'top',
+        description: `${newContacts.name} is alredy in contacts`,
+        status: 'warning',
+        duration: 9000,
+        isClosable: true,
+      });
       return;
     }
     dispatch(addContacts(newContacts));
