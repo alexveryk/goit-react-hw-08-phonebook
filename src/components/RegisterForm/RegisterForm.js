@@ -65,7 +65,7 @@ export const RegisterForm = () => {
                     validate={value => {
                       let error;
 
-                      if (value.length < 6) {
+                      if (value.length < 7) {
                         error = 'Password must contain at least 6 characters';
                       }
 
