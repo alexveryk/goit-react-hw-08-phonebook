@@ -34,7 +34,7 @@ export const PhonebookForm = () => {
         position: 'top',
         description: `${newContacts.name} is alredy in contacts`,
         status: 'warning',
-        duration: 9000,
+        duration: 4000,
         isClosable: true,
       });
       return;
