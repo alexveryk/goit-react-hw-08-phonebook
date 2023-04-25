@@ -1,7 +1,4 @@
 import { Outlet } from 'react-router-dom';
-// import { Toaster } from 'react-hot-toast';
-// import { AppBar } from '../components/AppBar/AppBar';
-
 import { Suspense } from 'react';
 import { AppBar } from './AppBar/AppBar';
 
